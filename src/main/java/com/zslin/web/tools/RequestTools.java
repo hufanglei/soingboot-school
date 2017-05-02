@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class RequestTools {
 
-    /** 获取登陆的用户 */
+    /** 获取登陆的用户   */
     public static Account getAccount(HttpServletRequest request) {
         return (Account) request.getSession().getAttribute("login_account");
     }
