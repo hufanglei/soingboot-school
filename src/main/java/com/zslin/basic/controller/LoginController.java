@@ -10,12 +10,14 @@ import com.zslin.basic.exception.SystemException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.math.BigDecimal;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
@@ -90,4 +92,15 @@ public class LoginController {
         session.removeAttribute(AuthToken.SESSION_NAME);
         return "1";
     }
+
+    /** 退出 */
+    @RequestMapping(value="/test/{money}/{num}", method=RequestMethod.GET)
+    public @ResponseBody String test(@PathVariable BigDecimal money, @PathVariable BigDecimal num) {
+        System.out.println(money);
+        System.out.println(num);
+        System.out.println("---");
+        return money+"==="+num;
+    }
+
+
 }
